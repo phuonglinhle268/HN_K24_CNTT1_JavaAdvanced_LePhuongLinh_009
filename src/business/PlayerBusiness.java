@@ -54,6 +54,7 @@ public class PlayerBusiness {
             System.out.println("Mã cờ thủ không tồn tại trong hệ thống");
             return;
         }
+
         ChessPlayer player = optional.get();
         System.out.println("1. Tên\n2. Tuổi\n3. Elo");
         int choice = Integer.parseInt(scanner.nextLine());

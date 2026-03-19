@@ -23,6 +23,7 @@ public class PlayerManagement {
             System.out.print("Nhập lựa chọn: ");
 
             int choice = Integer.parseInt(scanner.nextLine());
+
             switch (choice){
                 case 1:
                     business.displayList();

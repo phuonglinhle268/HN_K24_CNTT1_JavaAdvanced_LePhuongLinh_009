@@ -76,6 +76,7 @@ public class ChessPlayer {
         }
     }
 
+
     public  void displayData(){
         System.out.printf("| %-5s | %-20s | %-3s | %-5s | \n ", playerId, playerName, age, elo);
     }
