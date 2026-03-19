@@ -49,35 +49,50 @@ public class ChessPlayer {
         this.elo = elo;
     }
 
-    public  void inputData(Scanner scanner){
-        System.out.print("Nhập mã cờ thủ: ");
-        this.playerId = scanner.nextLine();
+    public void inputData(Scanner scanner){
+        while (true){
+            System.out.print("Nhập mã cờ thủ: ");
+            String id = scanner.nextLine();
+            if (!id.trim().isEmpty()){
+                this.playerId = id;
+                break;
+            }
+            System.out.println("Không được để trống!");
+        }
+
         System.out.print("Nhập tên cờ thủ: ");
         this.playerName = scanner.nextLine();
 
         while (true){
-            System.out.print("Nhập tuổi: ");
-            int age = Integer.parseInt(scanner.nextLine());
-            if (age >= 18){
-                this.age = age;
-                break;
+            try {
+                System.out.print("Nhập tuổi: ");
+                int age = Integer.parseInt(scanner.nextLine());
+                if (age >= 18){
+                    this.age = age;
+                    break;
+                }
+                System.out.println("Tuổi phải >= 18");
+            } catch (Exception e) {
+                System.out.println("Nhập sai định dạng");
             }
-            System.out.println("Sân chơi dành cho sinh viên đại học từ 18 trở lên");
         }
 
         while (true){
-            System.out.print("Nhập elo (trình độ): ");
-            int elo = Integer.parseInt(scanner.nextLine());
-            if (elo >= 0){
-                this.elo = elo;
-                break;
+            try {
+                System.out.print("Nhập elo: ");
+                int elo = Integer.parseInt(scanner.nextLine());
+                if (elo >= 0){
+                    this.elo = elo;
+                    break;
+                }
+                System.out.println("Elo không được âm");
+            } catch (Exception e) {
+                System.out.println("Nhập sai định dạng");
             }
-            System.out.println("Elo không được âm");
         }
     }
 
-
     public  void displayData(){
-        System.out.printf("| %-5s | %-20s | %-3s | %-5s | \n ", playerId, playerName, age, elo);
+        System.out.printf("| %-10s | %-20s | %-5d | %-5d |\n ", playerId, playerName, age, elo);
     }
 }
